@@ -1,5 +1,7 @@
 {
     "project_id": "Required. Your project id",
+    "account_file": "Optional. Path to GCP Account file json. If not defined packer use application default credentials",
+    "zone": "Required. Build machine zone. Default europe-west1-b"
     "source_image_family": "Required. Source image family",
     "machine_type": "The machine type. f1-micro by default",
     "ssh_username": "Ssh username for temp vm. appuser by default",
