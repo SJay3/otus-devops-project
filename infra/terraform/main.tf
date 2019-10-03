@@ -1,30 +1,30 @@
 terraform {
   # версия terraform
-  required_version = "~> 0.11.7"
+  required_version = "> 0.12.0"
 }
 
 provider "google" {
   # Версия провайдера
-  version = "2.0.0"
+  version = "2.16.0"
 
   # id проекта
-  project = "${var.project}"
+  project = var.project
 
-  region = "${var.region}"
+  region = var.region
 }
 
 resource "google_compute_instance" "docker" {
   name = "docker-tf-host-${count.index + 1}"
-  machine_type = "${var.machine_type}"
-  zone = "${var.zone}"
+  machine_type = var.machine_type
+  zone = var.zone
   tags = ["docker-host"]
-  count = "${var.instance_count}"
+  count = var.instance_count
 
   # определение загрузочного диска
   boot_disk {
     initialize_params {
-      image = "${var.docker_disk_image}"
-      size = "${var.docker_disk_size}"
+      image = var.docker_disk_image
+      size = var.docker_disk_size
     }
   }
 
@@ -35,11 +35,11 @@ resource "google_compute_instance" "docker" {
 
     # использовать ephemeral IP для доступа из Интернет
     access_config {
-      nat_ip = "${google_compute_address.docker_ip.address}"
+      nat_ip = google_compute_address.docker_ip[count.index].address
     }
   }
 
-  metadata {
+  metadata = {
     # Путь до публичного ключа
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
@@ -48,10 +48,11 @@ resource "google_compute_instance" "docker" {
 
 resource "google_compute_address" "docker_ip" {
   name = "docker-tf-host-ip-${count.index + 1}"
+  count = var.instance_count
 }
 
 resource "google_compute_firewall" "docker_http" {
-  count = "${var.enable_web_traffic ? 1 : 0}" # Если переменная false ресурс не будет создан
+  count = var.enable_web_traffic ? 1 : 0 # Если переменная false ресурс не будет создан
   name = "allow-docker-web"
   network = "default"
 

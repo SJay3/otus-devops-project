@@ -44,13 +44,13 @@ variable "docker_disk_size" {
 }
 
 variable "instance_count" {
-  type        = "string"
+  type        = number
   description = "Count instances"
-  default     = "1"
+  default     = 1
 }
 
 variable "enable_web_traffic" {
-  type = "string"
+  type = bool
   description = "Create http/https firewall rules and map to instance or not"
-  default = "false"
+  default = false
 }
