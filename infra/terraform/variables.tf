@@ -9,6 +9,12 @@ variable "region" {
   default     = "europe-west1"
 }
 
+variable "gcp_key_path" {
+  type = "string"
+  description = "Path to GCP account key in JSON. If not specified used application default credentials"
+  default = null
+}
+
 variable "machine_type" {
   type = "string"
   description = "GCP machine type. g1-small by default"

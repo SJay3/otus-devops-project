@@ -6,5 +6,5 @@ docker_disk_size = "10"
 region = "europe-west1"
 zone = "europe-west1-b"
 machine_type = "g1-small"
-instance_count = "1"
-enable_web_traffic = "false"
+instance_count = 1
+enable_web_traffic = false
