@@ -44,7 +44,7 @@ resource "google_compute_instance" "docker" {
 
   metadata = {
     # Путь до публичного ключа
-    ssh-keys = "appuser:${file(var.public_key_path)}"
+    ssh-keys = "${var.ssh_user}:${file(var.public_key_path)}"
   }
 
 }

@@ -1,4 +1,5 @@
 project = "Your project id"
+ssh_user = "appuser"
 public_key_path = "~/.ssh/appuser.pub"
 privat_key_path = "~/.ssh/appuser"
 docker_disk_image = "docker-base"

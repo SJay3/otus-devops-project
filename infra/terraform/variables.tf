@@ -21,9 +21,14 @@ variable "machine_type" {
   default = "g1-small"
 }
 
+variable "ssh_user" {
+  type = "string"
+  description = "ssh username"
+}
+
 variable "public_key_path" {
   type        = "string"
-  description = "Path to the public key used to connect to instance"
+  description = "Path to the public key used to connect to instance for user defined in ssh_user"
 }
 
 variable "privat_key_path" {
