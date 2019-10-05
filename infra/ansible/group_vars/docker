@@ -1,0 +1,3 @@
+# vars for docker group
+env: infra
+
