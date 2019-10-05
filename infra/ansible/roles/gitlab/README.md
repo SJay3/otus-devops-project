@@ -11,7 +11,11 @@ This role requierd VM with docker installlation.
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```
+gitlab_external_ip: external ip address of docker VM. Used in gitlab address in env var external_upl
+gitlab_hostname: hostname of gitlab. Default gitlab.example.com. Used in compose file
+
+```
 
 Dependencies
 ------------

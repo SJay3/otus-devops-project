@@ -1,2 +1,5 @@
 ---
-# tasks file for gitlab
+- name: Render compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: /tmp/gitlab/docker-compose.yml

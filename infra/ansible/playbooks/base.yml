@@ -1,4 +1,5 @@
 ---
+# install base software to VM, like python
 - name: Check and Install python
   hosts: all
   become: true
