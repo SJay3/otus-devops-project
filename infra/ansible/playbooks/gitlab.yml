@@ -3,6 +3,6 @@
 - name: Install gitlab
   hosts: docker
   roles:
-    - gitlab
+    - role: gitlab
       vars:
-        gitlab_external_ip: ""
+        gitlab_external_ip: "{{ inventory_hostname }}"
