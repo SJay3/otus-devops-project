@@ -50,3 +50,9 @@ variable "enable_web_traffic" {
   description = "Create http/https firewall rules and map to instance or not"
   default = false
 }
+
+### Network settings
+variable "subnet_cidr_range" {
+  type = "string"
+  description = "Ip cidr range for subnetwork. Required"
+}

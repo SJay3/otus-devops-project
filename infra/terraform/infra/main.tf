@@ -11,5 +11,6 @@ module "docker" {
   machine_type = var.machine_type
   docker_disk_size = var.docker_disk_size
   enable_web_traffic = var.enable_web_traffic
+  subnet_cidr_range = var.subnet_cidr_range
 
 }

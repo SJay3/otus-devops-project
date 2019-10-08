@@ -30,3 +30,27 @@ GCP project = devops-254718
 ### Ansible
 Версия > 2.8.3
 Для работы ансибла отдельно от пакера или терраформа, необходимо использовать сервисный аккаунт GCP. Ключ к аккаунту прописан в файле inventory.gcp.yml и имеет значение `~/ansible_gcp-devops_key.json`. Для ручного применения ансибла, в файле ansible.cfg так же необходимо прописать путь к приватному ключу и юзера, у которого есть доступ к ВМ, развернутой терраформом.
+
+## Использование
+0. Создать образ докера
+
+```shell
+cd infra
+packer build -var-file=packer/variables.json packer/docker.json
+```
+
+1. Поднять основную инфраструктуру:
+
+```shell
+cd infra/terraform
+terraform init
+terraform apply
+```
+
+2. Поднять инфраструктуру окружения **infra**
+
+```shell
+cd infra/terraform/infra
+terraform init
+terraform apply
+```
