@@ -5,9 +5,9 @@ variable "project" {
 }
 
 variable "gcp_key_path" {
-  type = "string"
+  type        = "string"
   description = "Path to GCP account key in JSON. If not specified used application default credentials"
-  default = null
+  default     = null
 }
 
 variable "region" {
