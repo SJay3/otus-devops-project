@@ -5,6 +5,9 @@ regions:
   - europe-west1
 groups:
   docker: "'docker-tf' in name"
+  infra: "'infra' in name"
+  stage: "'stage' in name"
+  prod: "'prod' in name"
 filters: []
 auth_kind: serviceaccount
 service_account_file: ~/ansible_gcp-devops_key.json
