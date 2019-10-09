@@ -8,6 +8,7 @@
   template:
     src: docker-compose.yml.j2
     dest: /tmp/gitlab/docker-compose.yml
+  no_log: true
 
 - name: Run gitlab
   docker_compose:

@@ -76,3 +76,10 @@ variable "subnet_cidr_range" {
   description = "Ip cidr range for subnetwork."
   default = "10.200.200.0/24"
 }
+
+# Ansible vars (for provision)
+variable "ansible_vault_key" {
+  type = "string"
+  description = "Path to ansible vault key"
+  default = "~/ansible_vault_devops_infra.key"
+}

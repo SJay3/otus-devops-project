@@ -40,6 +40,22 @@ GCP project = devops-254718
 echo <randomString> > ~/ansible_vault_devops_infra.key
 ```
 
+Далее создаем файл ansible/group_vars/infra/vault.yml со следующим описанием
+
+```yaml
+---
+gitlab_initial_pass: <password>
+
+```
+
+После чего, зашифруем файл:
+
+```shell
+ansible-vault encrypt \
+--vault-password-file ~/ansible_vault_devops_infra.key \
+ansible/group_vars/infra/vault.yml
+```
+
 ## Использование
 0. Создать образ докера
 

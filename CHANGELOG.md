@@ -12,7 +12,7 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- Gitlab installation with ansible must use encrypted admin password (encrypted with ansible vault)
+
 
 ## [Unreleased]
 ### Added
@@ -22,6 +22,10 @@
 
 ### Changed
 - Packer configuration can use account file or gcp application credentials
+
+### Security
+- Gitlab installation with ansible must use encrypted admin password (encrypted with ansible vault)
+- Hide ansible output with gitlab admin password
 
 ## [0.0.1] - 2019-10-02
 ### Added
