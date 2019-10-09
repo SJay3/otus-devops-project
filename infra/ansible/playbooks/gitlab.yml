@@ -1,0 +1,8 @@
+---
+# install gitlab
+- name: Install gitlab
+  hosts: infra
+  roles:
+    - role: gitlab
+      # vars:
+      #   gitlab_external_ip: "{{ inventory_hostname }}"

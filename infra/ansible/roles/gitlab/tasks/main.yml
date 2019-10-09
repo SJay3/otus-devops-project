@@ -1,0 +1,16 @@
+---
+- name: Create gitlab tmp dir
+  file:
+    path: /tmp/gitlab
+    state: directory
+
+- name: Render compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: /tmp/gitlab/docker-compose.yml
+  no_log: true
+
+- name: Run gitlab
+  docker_compose:
+    project_src: /tmp/gitlab
+    state: present

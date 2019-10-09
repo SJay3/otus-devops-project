@@ -1,0 +1,2 @@
+---
+gitlab_external_ip: "{{ inventory_hostname }}"

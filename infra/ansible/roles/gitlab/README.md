@@ -1,16 +1,21 @@
-Docker
+gitlab
 =========
 
-Install docker to Ubuntu
+Install gitlab omnibus in docker container with docker-compose
 
 Requirements
 ------------
-None.
+
+This role requierd VM with docker installlation.
 
 Role Variables
 --------------
 
-- deploy_user - user that have privilege to run docker without sudo
+```
+gitlab_external_ip: external ip address of docker VM. Used in gitlab address in env var external_upl
+gitlab_hostname: hostname of gitlab. Default gitlab.example.com. Used in compose file
+
+```
 
 Dependencies
 ------------
