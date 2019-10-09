@@ -12,9 +12,14 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-
+- Create monitoring inrastracture (prometheus + grafana)
+- Add infra node to monitoring
+- Add Gitlab to monitoring
+- Create Grafana Dashboards
 
 ## [Unreleased]
+
+## [0.1.0] 2019-10-09
 ### Added
 - Terraform module docker
 - Terraform environments infra, stage and prod
