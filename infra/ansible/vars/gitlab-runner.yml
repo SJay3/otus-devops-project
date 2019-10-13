@@ -1,0 +1,5 @@
+---
+# gitlab runner vars
+gitlab_runner_registration_token: 'mzAo7yQESJKqoQxsZzuZ'
+gitlab_runner_coordinator_url: "http://35.240.96.208/"
+gitlab_runner_package_name: gitlab-runner

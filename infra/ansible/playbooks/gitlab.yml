@@ -1,4 +1,7 @@
 ---
+# install base dependencies
+- import_playbook: base.yml
+
 # install gitlab
 - name: Install gitlab
   hosts: infra

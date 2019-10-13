@@ -1,13 +1,24 @@
 otus-devops.sublime-workspace
 otus-devops.sublime-project
 
+# packer
 variables.json
+# terraform
 .terraform/
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
+
+# ansible
 *.retry
+
+# ansible external roles
+riemers.gitlab-runner
+
+# vagrant
 .vagrant/
-docker-monolith/infra/ansible/ubuntu-xenial-16.04-cloudimg-console.log
+ubuntu-xenial-16.04-cloudimg-console.log
+
+# docker-compose
 *.env
