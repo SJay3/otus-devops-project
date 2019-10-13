@@ -1,0 +1,24 @@
+---
+# configure gitlab
+- name: Configure gitlab
+  hosts: infra
+  vars_files:
+    - "{{ inventory_dir }}/vars/gitlab.yml"
+  tasks:
+    - name: Install python modules
+      pip:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - python-gitlab
+
+    - name: Create gitlab groups
+      gitlab_group:
+        server_url: "http://{{ gitlab_external_ip }}"
+        api_token: "{{ gitlab_personal_token }}"
+        validate_certs: False
+        state: present
+        name: "{{ item }}"
+      loop: "{{ gitlab_groups }}"
+      tags:
+        - gitlab_groups

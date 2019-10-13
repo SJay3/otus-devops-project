@@ -1,2 +1,8 @@
 ---
+# gitlab vars
 gitlab_external_ip: "{{ inventory_hostname }}"
+
+# gitlab-runner vars
+gitlab_runner_package_name: gitlab-runner
+gitlab_groups:
+  - crawler

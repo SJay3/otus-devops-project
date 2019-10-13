@@ -13,15 +13,15 @@
     - name: Install pyhthon dependencies
       vars:
         packages:
-          - python-pip 
-          - python-virtualenv 
+          - python-pip
+          - python-virtualenv
           - python-setuptools
       apt:
         name: "{{ packages }}"
         update_cache: yes
         state: present
 
-    - name: Install python libraries for use docker with Ansible
-      pip:
-        name: docker
-        state: present
+    # - name: Install python libraries for use docker with Ansible
+    #   pip:
+    #     name: docker
+    #     state: present

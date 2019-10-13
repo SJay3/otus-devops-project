@@ -12,12 +12,23 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
+- fix timeouts for ssh connection in terraform ansible provisioner.
+- Add parametr to run provissioner in terraform or not
+- Install gitlab-runner into infra, stage and prod with ansible
 - Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
 
 ## [Unreleased]
+### Added
+- Create groups in gitlab with ansible. Playbook `gitlab_conf.yml`
+
+### Changed
+- Add dependencies to gitlab playbook
+
+### Removed
+- Remove docker installation with pip in base playbook.
 
 ## [0.1.0] 2019-10-09
 ### Added

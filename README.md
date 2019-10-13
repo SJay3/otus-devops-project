@@ -2,8 +2,7 @@
 Repo for graduate work in otus in DevOps
 
 GCP project = devops-254718
-[Репозиторий crawler ui](https://github.com/SJay3/search_engine_ui)
-[Репозиторий crawler](https://github.com/SJay3/search_engine_crawler)
+[Репозиторий crawler](https://github.com/SJay3/crawler)
 
 
 ## Описание инфраструктуры
@@ -56,6 +55,12 @@ ansible-vault encrypt \
 ansible/group_vars/infra/vault.yml
 ```
 
+Подтягиваем сторонние роли:
+
+```shell
+ansible-galaxy install -r requirements.yml
+```
+
 ## Использование
 0. Создать образ докера
 
@@ -79,3 +84,8 @@ cd infra/terraform/infra
 terraform init
 terraform apply
 ```
+
+3. Залогиниться в гитлабе. Отключить регистрацию в настройках. 
+4. Зайти в профиль и сгенерировать personal access token. Скопировать этот токен в файл infra/ansible/vars/gitlab.yml в `gitlab_personal_token`.
+5. Запустить плейбук gitlab_conf.yml для дальнейшего конфигурирования гитлаба. Будут созданы группы репозитории в них.
+6. 
