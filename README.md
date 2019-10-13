@@ -86,6 +86,14 @@ terraform apply
 ```
 
 3. Залогиниться в гитлабе. Отключить регистрацию в настройках. 
-4. Зайти в профиль и сгенерировать personal access token. Скопировать этот токен в файл infra/ansible/vars/gitlab.yml в `gitlab_personal_token`.
+4. Зайти в профиль и сгенерировать personal access token (Настройки пользователя - access tokens) с доступом к api. Скопировать этот токен в файл infra/ansible/vars/gitlab.yml в `gitlab_personal_token`.
 5. Запустить плейбук gitlab_conf.yml для дальнейшего конфигурирования гитлаба. Будут созданы группы репозитории в них.
-6. 
+
+```shell
+cd infra/ansible
+ansible-playbook --vault-password-file \
+	~/ansible_vault_devops_infra.key \
+	playbooks/gitlab_conf.yml
+```
+
+ 

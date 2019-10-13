@@ -10,6 +10,12 @@
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
       changed_when: False
 
+    - name: Remove apt lock file
+      file:
+        state: absent
+        path: "/var/lib/dpkg/lock-frontend"
+      become: true
+
     - name: Install pyhthon dependencies
       vars:
         packages:

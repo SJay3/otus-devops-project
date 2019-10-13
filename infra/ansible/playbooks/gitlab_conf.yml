@@ -18,7 +18,21 @@
         api_token: "{{ gitlab_personal_token }}"
         validate_certs: False
         state: present
-        name: "{{ item }}"
-      loop: "{{ gitlab_groups }}"
+        name: "{{ item.group }}"
+      loop: "{{ gitlab_projects }}"
       tags:
         - gitlab_groups
+        - gitlab_conf
+
+    - name: Create gitlab projects
+      gitlab_project:
+        server_url: "http://{{ gitlab_external_ip }}"
+        api_token: "{{ gitlab_personal_token }}"
+        validate_certs: False
+        state: present
+        name: "{{ item.project }}"
+        group: "{{ item.group }}"
+      loop: "{{ gitlab_projects }}"
+      tags:
+        - gitlab_projects
+        - gitlab_conf
