@@ -9,7 +9,9 @@
     src: docker-compose.yml.j2
     dest: /tmp/gitlab-runner/docker-compose.yml
 
-# - name: Run gitlab-runner
-#   docker-compose:
-#     project_src: /tmp/gitlab-runner
-#     state: present
+- name: Run gitlab-runner
+  docker_compose:
+    project_src: /tmp/gitlab-runner
+    project_name: "{{ compose_project }}"
+    state: present
+  register: compose

@@ -1,3 +1,10 @@
 ---
 - name: Install Gitlab Runnner
   import_tasks: install.yml
+
+- name: Register runners
+  include_tasks: register.yml
+  loop: "{{ gitlab_runner_runners }}"
+  loop_control:
+    extended: yes
+    loop_var: gitlab_runner

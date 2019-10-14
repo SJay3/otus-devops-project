@@ -1,0 +1,16 @@
+---
+# - name: Show compose var
+#   debug:
+#     msg: "{{ compose }}"
+
+- name: Register runners
+  shell: >
+    docker exec -it
+    '{{ compose_project }}_runner_{{ ansible_loop.index }}_{{ gitlab_runner.executor }}'
+    gitlab-runner register
+    --non-interactive
+    --url '{{ gitlab_runner_coordinator_url }}'
+  loop: "{{ gitlab_runner_runners }}"
+  loop_control:
+    extended: yes
+    loop_var: gitlab_runner

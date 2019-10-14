@@ -28,8 +28,10 @@
       with_items:
         - /var/cache/apt/archives/lock
         - /var/lib/dpkg/lock-frontend
+        - /var/lib/dpkg/lock
 
     - name: Install pyhthon dependencies
+      become: true
       vars:
         packages:
           - python-pip

@@ -2,7 +2,7 @@
 version: '2'
 services:
 {% for runner in gitlab_runner_runners %}
-  runner_{{ loop.index }}:
+  runner_{{ loop.index }}_{{ runner.executor }}:
     image: gitlab/gitlab-runner:latest
     volumes:
       - /srv/gitlab-runner/config:/etc/gitlab-runner

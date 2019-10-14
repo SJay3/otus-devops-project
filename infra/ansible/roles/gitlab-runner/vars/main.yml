@@ -1,2 +1,2 @@
 ---
-# vars file for gitlab-runner
+compose_project: gitlab
