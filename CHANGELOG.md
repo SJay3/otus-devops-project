@@ -18,8 +18,11 @@
 - Add infra node to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
+- Add supported version in Readme
 
 ## [Unreleased]
+### Fixed
+- Fix when apt fails with dpkg lock. Add update cache task and remove update cache in pkg installation
 
 ## [0.1.1] 2019-10-13
 ### Added

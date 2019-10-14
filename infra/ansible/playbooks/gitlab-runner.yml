@@ -1,0 +1,9 @@
+---
+# install runner
+- name: Install gitlab runners
+  hosts: all
+  become: true
+  vars_files:
+    - "{{ inventory_dir }}/vars/gitlab-runner.yml"
+  roles:
+    - role: riemers.gitlab-runner # Not Install In Docker

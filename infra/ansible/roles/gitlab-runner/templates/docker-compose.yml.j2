@@ -1,0 +1,11 @@
+---
+version: '2'
+services:
+{% for runner in gitlab_runner_runners %}
+  runner_{{ loop.index }}:
+    image: gitlab/gitlab-runner:latest
+    volumes:
+      - /srv/gitlab-runner/config:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+{% endfor %}

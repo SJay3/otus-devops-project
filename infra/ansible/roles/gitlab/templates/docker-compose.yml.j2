@@ -1,16 +1,18 @@
-web:
-  image: 'gitlab/gitlab-ce:latest'
-  restart: always
-  hostname: '{{ gitlab_hostname }}'
-  environment:
-    GITLAB_OMNIBUS_CONFIG: |
-      external_url 'http://{{ gitlab_external_ip }}'
-      gitlab_rails['initial_root_password'] = "{{ gitlab_initial_pass }}"
-  ports:
-    - '80:80'
-    - '443:443'
-    - '2222:22'
-  volumes:
-    - '/srv/gitlab/config:/etc/gitlab'
-    - '/srv/gitlab/logs:/var/log/gitlab'
-    - '/srv/gitlab/data:/var/opt/gitlab'
+version: "2"
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: '{{ gitlab_hostname }}'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://{{ gitlab_external_ip }}'
+        gitlab_rails['initial_root_password'] = "{{ gitlab_initial_pass }}"
+    ports:
+      - '80:80'
+      - '443:443'
+      - '2222:22'
+    volumes:
+      - '/srv/gitlab/config:/etc/gitlab'
+      - '/srv/gitlab/logs:/var/log/gitlab'
+      - '/srv/gitlab/data:/var/opt/gitlab'
