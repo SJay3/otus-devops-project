@@ -18,9 +18,12 @@
 - Add infra node to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
-- Add supported version in Readme
+- Add supported version of software in Readme
 
 ## [Unreleased]
+### Added
+- Added gitlab-runner custom ansible role. Role based on riemers.gitlab-runner role, but install runner only in docker container.
+
 ### Fixed
 - Fix when apt fails with dpkg lock. Add update cache task and remove update cache in pkg installation
 
