@@ -2,6 +2,7 @@
 Repo for graduate work in otus in DevOps
 
 GCP project = devops-254718
+
 [Репозиторий crawler](https://github.com/SJay3/crawler)
 
 
@@ -57,7 +58,7 @@ ansible-vault encrypt \
 ansible/group_vars/infra/vault.yml
 ```
 
-Подтягиваем сторонние роли:
+Подтягиваем сторонние роли (DEPRECATED):
 
 ```shell
 ansible-galaxy install -r requirements.yml
@@ -122,13 +123,17 @@ ansible-playbook --vault-password-file \
 	playbooks/gitlab-runner.yml
 ```
 
-9. Переключимся на репозиторий crawler и добавим в него новый remote
+9. Заведем в гитлабе 2 переменные:
+- `CI_DH_USER` - логин на dockerhub
+- `CI_DH_PASS` - пароль от dockerhub
+
+10. Переключимся на репозиторий crawler и добавим в него новый remote
 
 ```shell
 git remote add gitlab http://<gitlab_ip>/crawler/crawler.git
 ```
 
-10. Запушим изменения
+11. Запушим изменения
 
 ```shell
 # Ветка dev
@@ -138,3 +143,5 @@ git push gitlab dev:dev
 git push gitlab master
 
 ```
+
+12. Наслаждаемся пайплайном в гитлабе. Деплой на stage и prod производится вручную. На stage можно деплоится только с ветки dev, на prod только с ветки master или с тега.
