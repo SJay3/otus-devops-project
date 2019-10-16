@@ -19,6 +19,8 @@
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
 - Add supported version of software in Readme
+- Update readme in gitlab role
+- Add description how gitlab working with crawler in readme
 
 ## [Unreleased]
 

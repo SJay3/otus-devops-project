@@ -85,7 +85,7 @@ terraform init
 terraform apply
 ```
 
-3. Залогиниться в гитлабе. Отключить регистрацию в настройках. 
+3. Залогиниться в гитлабе. Отключить регистрацию в настройках а так же AutoDevOps.
 4. Зайти в профиль и сгенерировать personal access token (Настройки пользователя - access tokens) с доступом к api. Скопировать этот токен в файл infra/ansible/vars/gitlab.yml в `gitlab_personal_token`.
 5. Запустить плейбук gitlab_conf.yml для дальнейшего конфигурирования гитлаба. Будут созданы группы репозитории в них.
 
@@ -104,4 +104,21 @@ cd infra/ansible
 ansible-playbook --vault-password-file \
 	~/ansible_vault_devops_infra.key \
 	playbooks/gitlab-runner.yml
+```
+
+8. Переключимся на репозиторий crawler и добавим в него новый remote
+
+```shell
+git remote add gitlab http://<gitlab_ip>/crawler/crawler.git
+```
+
+9. Запушим изменения
+
+```shell
+# Ветка dev
+git push gitlab dev:dev
+
+# Ветка master
+git push gitlab master
+
 ```
