@@ -96,4 +96,12 @@ ansible-playbook --vault-password-file \
 	playbooks/gitlab_conf.yml
 ```
 
- 
+6. Зайти в гитлаб в репозиторий crawler/crawler далее settings -> CI/CD -> Runners. Скопировать токен раннета в ansible/vars/gitlab-runner.yml в `gitlab_runner_registration_token`. Все остальные параметры раннера хранятся в group vars для соответствующих контуров.
+7. Запустить плейбук gitlab-runner.yml для развертывания раннера в контуре infra
+
+```shell
+cd infra/ansible
+ansible-playbook --vault-password-file \
+	~/ansible_vault_devops_infra.key \
+	playbooks/gitlab-runner.yml
+```
