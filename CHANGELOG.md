@@ -13,13 +13,22 @@
 
 ## [ToDo]
 - Add parametr to run provissioner in terraform or not
-- Install gitlab-runner into infra, stage and prod with ansible
+- Install gitlab-runner into stage and prod with ansible
 - Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
+- Add supported version of software in Readme
 
 ## [Unreleased]
+
+## [0.1.2] 2019-10-16
+### Added
+- Added gitlab-runner custom ansible role. Role based on riemers.gitlab-runner role, but install runner only in docker container.
+- Ansible playbook to install gitlab-runner into infra.
+
+### Fixed
+- Fix when apt fails with dpkg lock. Add update cache task and remove update cache in pkg installation
 
 ## [0.1.1] 2019-10-13
 ### Added

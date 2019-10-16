@@ -1,0 +1,17 @@
+---
+- name: Create gitlab-runner tmp dir
+  file:
+    path: /tmp/gitlab-runner
+    state: directory
+
+- name: Render compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: /tmp/gitlab-runner/docker-compose.yml
+
+- name: Run gitlab-runner
+  docker_compose:
+    project_src: /tmp/gitlab-runner
+    project_name: "{{ compose_project }}"
+    state: present
+  register: compose

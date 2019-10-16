@@ -16,7 +16,22 @@
         path: "/var/lib/dpkg/lock-frontend"
       become: true
 
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Remove apt lock file2
+      file:
+        state: absent
+        path: "{{ item }}"
+      become: true
+      with_items:
+        - /var/cache/apt/archives/lock
+        - /var/lib/dpkg/lock-frontend
+        - /var/lib/dpkg/lock
+
     - name: Install pyhthon dependencies
+      become: true
       vars:
         packages:
           - python-pip
@@ -24,7 +39,7 @@
           - python-setuptools
       apt:
         name: "{{ packages }}"
-        update_cache: yes
+        update_cache: no
         state: present
 
     # - name: Install python libraries for use docker with Ansible
