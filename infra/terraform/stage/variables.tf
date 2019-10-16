@@ -20,13 +20,13 @@ variable "gcp_key_path" {
 variable "region" {
   type        = "string"
   description = "region"
-  default     = "europe-west1"
+  default     = "europe-west3"
 }
 
 variable "zone" {
   type        = "string"
   description = "Zone"
-  default     = "europe-west1-b"
+  default     = "europe-west3-b"
 }
 
 # VM vars

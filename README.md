@@ -29,6 +29,8 @@ GCP project = devops-254718
 Версия > 0.12.0
 Можно использовать как application default credentials (по умолчанию), так и указать путь к ключу для сервис аккауна GCP (переменная `gcp_key_path`).
 
+!! Важно. При создании переменных для окружений infra, stage и prod необходимо использовать разные регионы, т.к. есть ограничение (при использовании free trial) на использование статических ip адресов - не больше 1 на регион.
+
 ### Ansible
 Версия > 2.8.3
 Для работы ансибла отдельно от пакера или терраформа, необходимо использовать сервисный аккаунт GCP. Ключ к аккаунту прописан в файле inventory.gcp.yml и имеет значение `~/ansible_gcp-devops_key.json`. Для ручного применения ансибла, в файле ansible.cfg так же необходимо прописать путь к приватному ключу и юзера, у которого есть доступ к ВМ, развернутой терраформом.
@@ -85,9 +87,23 @@ terraform init
 terraform apply
 ```
 
-3. Залогиниться в гитлабе. Отключить регистрацию в настройках а так же AutoDevOps.
-4. Зайти в профиль и сгенерировать personal access token (Настройки пользователя - access tokens) с доступом к api. Скопировать этот токен в файл infra/ansible/vars/gitlab.yml в `gitlab_personal_token`.
-5. Запустить плейбук gitlab_conf.yml для дальнейшего конфигурирования гитлаба. Будут созданы группы репозитории в них.
+3. Пока грузится гитлаб поднимаем stage и prod инфраструктуру
+
+```shell
+# stage
+cd infra/terraform/stage
+terraform init
+terraform apply
+
+# prod
+cd infra/terraform/prod
+terraform init
+terraform apply
+```
+
+4. Залогиниться в гитлабе. Отключить регистрацию в настройках а так же AutoDevOps.
+5. Зайти в профиль и сгенерировать personal access token (Настройки пользователя - access tokens) с доступом к api. Скопировать этот токен в файл infra/ansible/vars/gitlab.yml в `gitlab_personal_token`.
+6. Запустить плейбук gitlab_conf.yml для дальнейшего конфигурирования гитлаба. Будут созданы группы репозитории в них.
 
 ```shell
 cd infra/ansible
@@ -96,8 +112,8 @@ ansible-playbook --vault-password-file \
 	playbooks/gitlab_conf.yml
 ```
 
-6. Зайти в гитлаб в репозиторий crawler/crawler далее settings -> CI/CD -> Runners. Скопировать токен раннета в ansible/vars/gitlab-runner.yml в `gitlab_runner_registration_token`. Все остальные параметры раннера хранятся в group vars для соответствующих контуров.
-7. Запустить плейбук gitlab-runner.yml для развертывания раннера в контуре infra
+7. Зайти в гитлаб в репозиторий crawler/crawler далее settings -> CI/CD -> Runners. Скопировать токен раннета в ansible/vars/gitlab-runner.yml в `gitlab_runner_registration_token`. Все остальные параметры раннера хранятся в group vars для соответствующих контуров.
+8. Запустить плейбук gitlab-runner.yml для развертывания раннера в контуре infra
 
 ```shell
 cd infra/ansible
@@ -106,13 +122,13 @@ ansible-playbook --vault-password-file \
 	playbooks/gitlab-runner.yml
 ```
 
-8. Переключимся на репозиторий crawler и добавим в него новый remote
+9. Переключимся на репозиторий crawler и добавим в него новый remote
 
 ```shell
 git remote add gitlab http://<gitlab_ip>/crawler/crawler.git
 ```
 
-9. Запушим изменения
+10. Запушим изменения
 
 ```shell
 # Ветка dev
