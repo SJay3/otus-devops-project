@@ -1,7 +1,7 @@
 ### PROD ENV VARIABLES ###
 
 variable "environment" {
-  type = "string"
+  type        = "string"
   description = "Current environment"
 }
 
@@ -12,26 +12,26 @@ variable "project" {
 }
 
 variable "gcp_key_path" {
-  type = "string"
+  type        = "string"
   description = "Path to GCP account key in JSON. If not specified used application default credentials"
-  default = null
+  default     = null
 }
 
 variable "region" {
   type        = "string"
   description = "region"
-  default     = "europe-west1"
+  default     = "europe-north1"
 }
 
 variable "zone" {
   type        = "string"
   description = "Zone"
-  default     = "europe-west1-b"
+  default     = "europe-north1-a"
 }
 
 # VM vars
 variable "ssh_user" {
-  type = "string"
+  type        = "string"
   description = "ssh username"
 }
 
@@ -46,15 +46,15 @@ variable "privat_key_path" {
 }
 
 variable "machine_type" {
-  type = "string"
+  type        = "string"
   description = "GCP machine type. g1-small by default"
-  default = "n1-standard-1"
+  default     = "n1-standard-1"
 }
 
 variable "docker_disk_size" {
-  type = "string"
+  type        = "string"
   description = "Boot disk size"
-  default = "50"
+  default     = "50"
 }
 
 variable "instance_count" {
@@ -65,14 +65,14 @@ variable "instance_count" {
 
 # Firewall vars
 variable "enable_web_traffic" {
-  type = bool
+  type        = bool
   description = "Create http/https firewall rules and map to instance or not"
-  default = false
+  default     = false
 }
 
 # Network vars
 variable "subnet_cidr_range" {
-  type = "string"
+  type        = "string"
   description = "Ip cidr range for subnetwork."
-  default = "10.200.100.0/24"
+  default     = "10.200.100.0/24"
 }

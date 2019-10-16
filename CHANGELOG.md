@@ -19,8 +19,16 @@
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
 - Add supported version of software in Readme
+- Update readme in gitlab role
+- Add description how gitlab working with crawler in readme
+- fix runner registration. Register runner only once.
+- Configure runner in infra for concurrent jobs
 
 ## [Unreleased]
+
+## [0.1.3] 2019-10-16
+### Changed
+- Update readme in section how to use this repo
 
 ## [0.1.2] 2019-10-16
 ### Added

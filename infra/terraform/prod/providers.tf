@@ -12,7 +12,7 @@ provider "google" {
   project = var.project
 
   region = var.region
-   
+
   credentials = var.gcp_key_path != null ? "${file(var.gcp_key_path)}" : null
-  
+
 }

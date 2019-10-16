@@ -1,0 +1,17 @@
+---
+env: stage
+
+# gitlab-runner vars
+gitlab_runner_runners:
+  - name: "Privileged docker runner"
+    executor: docker
+    docker_image: "docker:19.03"
+    tags:
+      - docker
+      - linux
+      - dind
+      - "{{ env }}"
+    docker_volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/cache"
+    docker_privileged: true

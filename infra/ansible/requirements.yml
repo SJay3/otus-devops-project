@@ -1,2 +1,2 @@
-- src: riemers.gitlab-runner
-  version: v1.3.1
+# - src: riemers.gitlab-runner
+#   version: v1.3.1
