@@ -13,18 +13,26 @@
 
 ## [ToDo]
 - Add parametr to run provissioner in terraform or not
-- Install gitlab-runner into stage and prod with ansible
 - Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
 - Add supported version of software in Readme
-- Update readme in gitlab role
 - Add description how gitlab working with crawler in readme
 - fix runner registration. Register runner only once.
 - Configure runner in infra for concurrent jobs
 
 ## [Unreleased]
+
+## [0.1.4] 2019-10-17
+### Added
+- Install gitlab-runner into stage and prod with ansible. Playbook `gitlab-runner.yml`
+
+### Fixed
+- Fix docker installation ansible playbook to reconfigure docker to listen tcp sockets with unix socket.
+
+### Changed
+- Update readme in gitlab role
 
 ## [0.1.3] 2019-10-16
 ### Changed

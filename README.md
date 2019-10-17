@@ -124,8 +124,8 @@ ansible-playbook --vault-password-file \
 ```
 
 9. Заведем в гитлабе 2 переменные:
-- `CI_DH_USER` - логин на dockerhub
-- `CI_DH_PASS` - пароль от dockerhub
+- `CI_REGISTRY_USER` - логин на dockerhub
+- `CI_REGISTRY_PASSWORD` - пароль от dockerhub
 
 10. Переключимся на репозиторий crawler и добавим в него новый remote
 
