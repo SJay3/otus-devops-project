@@ -23,8 +23,13 @@
 - Configure runner in infra for concurrent jobs
 
 ## [Unreleased]
+
+## [0.1.4] 2019-10-17
 ### Added
 - Install gitlab-runner into stage and prod with ansible. Playbook `gitlab-runner.yml`
+
+### Fixed
+- Fix docker installation ansible playbook to reconfigure docker to listen tcp sockets with unix socket.
 
 ### Changed
 - Update readme in gitlab role
