@@ -1,14 +1,7 @@
 ---
-env: infra
-
-# gitlab vars
-gitlab_external_ip: "{{ inventory_hostname }}"
-gitlab_projects:
-  - group: crawler
-    project: crawler
+env: prod
 
 # gitlab-runner vars
-# gitlab_runner_concurrent: 2
 gitlab_runner_runners:
   - name: "Privileged docker runner"
     executor: docker
@@ -20,4 +13,5 @@ gitlab_runner_runners:
       - "{{ env }}"
     docker_volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/cache"
     docker_privileged: true
