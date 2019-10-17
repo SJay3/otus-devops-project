@@ -12,6 +12,5 @@ gitlab_runner_runners:
       - dind
       - "{{ env }}"
     docker_volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
       - "/cache"
     docker_privileged: true

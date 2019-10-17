@@ -23,6 +23,8 @@
 - Configure runner in infra for concurrent jobs
 
 ## [Unreleased]
+### Removed
+- fix variables for docker runner registration. Remove unix socket volume mount because it broke dind service.
 
 ## [0.1.4] 2019-10-17
 ### Added
