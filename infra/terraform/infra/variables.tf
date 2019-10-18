@@ -79,9 +79,9 @@ variable "subnet_cidr_range" {
 
 # Ansible vars (for provision)
 variable "enable_ansible_provisioner" {
-  type = bool
+  type        = bool
   description = "Enable or not ansible provisioner"
-  default = true
+  default     = true
 }
 
 variable "ansible_vault_key" {

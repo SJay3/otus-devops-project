@@ -71,9 +71,9 @@ variable "enable_web_traffic" {
 }
 
 variable "crawler_ui_web_port" {
-  type = number
+  type        = number
   description = "Crawler ui port number to create firewall rules"
-  default = 8000
+  default     = 8000
 }
 
 # Network vars

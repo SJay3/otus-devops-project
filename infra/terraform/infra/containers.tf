@@ -1,7 +1,7 @@
 #### INFRA ENV ####
 
 resource "null_resource" "deploy_containers" {
-  count = var.enable_ansible_provisioner ? 1 : 0
+  count      = var.enable_ansible_provisioner ? 1 : 0
   depends_on = [module.docker]
 
   provisioner "local-exec" {
