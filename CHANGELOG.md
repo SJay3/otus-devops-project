@@ -23,6 +23,7 @@
 - Configure runner in infra for concurrent jobs
 - Add waiting until ssh is reacheble in ansible-playbook base.yml
 - Create Docker image with docker-compose.
+- Create firewall rules for port 8000 with terraform
 
 ## [Unreleased]
 ### Removed
