@@ -70,6 +70,12 @@ variable "enable_web_traffic" {
   default     = false
 }
 
+variable "crawler_ui_web_port" {
+  type = number
+  description = "Crawler ui port number to create firewall rules"
+  default = 8000
+}
+
 # Network vars
 variable "subnet_cidr_range" {
   type        = "string"
