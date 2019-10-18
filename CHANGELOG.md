@@ -21,10 +21,14 @@
 - Add description how gitlab working with crawler in readme
 - fix runner registration. Register runner only once.
 - Configure runner in infra for concurrent jobs
+- Add waiting until ssh is reacheble in ansible-playbook base.yml
 
 ## [Unreleased]
 ### Removed
 - fix variables for docker runner registration. Remove unix socket volume mount because it broke dind service.
+
+### Added
+- Add gitlab-runner configuration option `wait_for_services_timeout`. Needs becouse docker:dind starts slowly and warning is shown.
 
 ## [0.1.4] 2019-10-17
 ### Added

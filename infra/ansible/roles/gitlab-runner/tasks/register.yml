@@ -67,6 +67,7 @@
     {% if gitlab_runner.extra_registration_option is defined %}
     {{ gitlab_runner.extra_registration_option }}
     {% endif %}
+    --docker-wait-for-services-timeout {{ gitlab_runner.wait_for_services_timeout }}
   # loop: "{{ gitlab_runner_runners }}"
   # loop_control:
   #   extended: yes
