@@ -22,6 +22,7 @@
 - fix runner registration. Register runner only once.
 - Configure runner in infra for concurrent jobs
 - Add waiting until ssh is reacheble in ansible-playbook base.yml
+- Create Docker image with docker-compose.
 
 ## [Unreleased]
 ### Removed

@@ -10,7 +10,7 @@ gitlab_projects:
 # gitlab-runner vars
 # gitlab_runner_concurrent: 2
 gitlab_runner_runners:
-  - name: "Privileged docker runner"
+  - name: "{{ env }} - Privileged docker runner"
     executor: docker
     docker_image: "docker:19.03"
     tags:
