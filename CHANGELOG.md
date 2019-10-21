@@ -23,6 +23,9 @@
 - [Docker] Create Docker image with docker-compose.
 
 ## [Unreleased]
+### Added
+- [Terraform] Add GCP firewall rules for prometheus
+- [Terraform] Add GCP firewall rules for grafana
 
 ## [0.1.5] 2019-10-21
 ### Removed

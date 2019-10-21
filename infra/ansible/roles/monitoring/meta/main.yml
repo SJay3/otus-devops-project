@@ -1,6 +1,6 @@
 galaxy_info:
   author: Dmitriy Usachev
-  description: role for install gitlab in docker-container with compose
+  description: This role install all monitoring components in docker containers with docker-compose.
   company:
 
   # If the issue tracker for your role is not on github, uncomment the
@@ -31,6 +31,7 @@ galaxy_info:
     - name: Docker
       versions:
         - all
+  #   - 25
   # - name: SomePlatform
   #   versions:
   #   - all
@@ -39,10 +40,17 @@ galaxy_info:
   #   - 99.99
 
   galaxy_tags:
-    - docker
     - docker-compose
-    - gitlab
-    - gitlab-ci
+    - docker
+    - prometheus
+    - grafana
+    - monitoring
+    # List tags for your role here, one per line. A tag is a keyword that describes
+    # and categorizes the role. Users find roles by searching for tags. Be sure to
+    # remove the '[]' above, if you add tags to this list.
+    #
+    # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
+    #       Maximum 20 tags per role.
 
 dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
