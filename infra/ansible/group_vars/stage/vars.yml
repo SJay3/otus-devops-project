@@ -3,7 +3,7 @@ env: stage
 
 # gitlab-runner vars
 gitlab_runner_runners:
-  - name: "Privileged docker runner"
+  - name: "{{ env }} - Privileged docker runner"
     executor: docker
     docker_image: "docker:19.03"
     tags:
@@ -15,3 +15,4 @@ gitlab_runner_runners:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/cache"
     docker_privileged: true
+    wait_for_services_timeout: '45'

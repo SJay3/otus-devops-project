@@ -8,3 +8,4 @@
   loop_control:
     index_var: gitlab_runner_index
     loop_var: gitlab_runner
+  when: compose.changed

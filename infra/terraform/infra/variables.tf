@@ -78,6 +78,12 @@ variable "subnet_cidr_range" {
 }
 
 # Ansible vars (for provision)
+variable "enable_ansible_provisioner" {
+  type        = bool
+  description = "Enable or not ansible provisioner"
+  default     = true
+}
+
 variable "ansible_vault_key" {
   type        = "string"
   description = "Path to ansible vault key"

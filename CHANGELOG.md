@@ -12,17 +12,33 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- Add parametr to run provissioner in terraform or not
 - Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
 - Add supported version of software in Readme
 - Add description how gitlab working with crawler in readme
-- fix runner registration. Register runner only once.
-- Configure runner in infra for concurrent jobs
+- [Ansible] Configure runner in infra for concurrent jobs
+- [Ansible] Add waiting until ssh is reacheble in ansible-playbook base.yml
+- [Docker] Create Docker image with docker-compose.
 
 ## [Unreleased]
+
+## [0.1.5] 2019-10-21
+### Removed
+- [Ansible] fix variables for docker runner registration in infra. Remove unix socket volume mount because it broke dind service.
+- [Terraform] Remove sleep in ansible provisioner.
+
+### Added
+- [Ansible] Add gitlab-runner configuration option `wait_for_services_timeout`. Needs becouse docker:dind starts slowly and warning is shown.
+- [Terraform] Create firewall rules for port 8000 with terraform
+- [Terraform] Add parametr to run provissioner in terraform or not
+- [Ansible] Add waiting until ssh is reacheble. Add playbook `wait.yml`. Import this playbook into gitlab.yml
+
+### Fixed
+- [Ansible] fix runner registration. Register runner only once. Add when statement to include register task, that true if installation task is changed.
+- [Ansible] Fix host unreacheble when running playbook in terraform
+
 
 ## [0.1.4] 2019-10-17
 ### Added

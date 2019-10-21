@@ -32,6 +32,8 @@ gitlab_runner_runners:
     docker_privileged: false
     # Runner Locked. When a runner is locked, it cannot be assigned to other projects
     locked: 'false'
+    # Default timeout for waiting while services in docker is running
+    wait_for_services_timeout: '30'
     # Custom environment variables injected to registration command
     env_vars: []
     #

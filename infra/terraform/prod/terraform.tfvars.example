@@ -10,3 +10,4 @@ zone = "europe-north1-a"
 machine_type = "n1-standard-1"
 instance_count = 1
 enable_web_traffic = false
+crawler_ui_web_port = 8000
