@@ -1,4 +1,5 @@
 ---
+- import_playbook: wait.yml
 # install base dependencies
 - import_playbook: base.yml
 
