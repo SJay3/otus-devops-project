@@ -1,0 +1,15 @@
+version: '2'
+services:
+  prometheus:
+    image: prom/prometheus:{{ prometheus_version }}
+    ports:
+      - '9090:9090'
+    volumes:
+      - prometheus_data:/prometheus
+      - /etc/prometheus:/etc/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention=1d'
+volumes:
+  prometheus_data:

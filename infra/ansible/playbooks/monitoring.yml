@@ -1,0 +1,7 @@
+---
+# install monitoring infrastructure
+- name: Install monitoring
+  hosts: infra
+  become: yes
+  roles:
+    - role: monitoring

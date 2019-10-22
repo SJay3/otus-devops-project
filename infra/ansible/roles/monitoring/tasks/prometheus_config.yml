@@ -1,0 +1,10 @@
+---
+- name: Create prometheus config directory
+  file:
+    path: /etc/prometheus
+    state: directory
+
+- name: Copy prometheus config
+  template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml

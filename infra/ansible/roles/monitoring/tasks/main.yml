@@ -1,2 +1,6 @@
 ---
-# tasks file for monitoring
+- name: Configure prometheus
+  import_tasks: prometheus_config.yml
+
+- name: Install monitoring tools
+  import_tasks: install.yml
