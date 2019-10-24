@@ -1,4 +1,4 @@
-version: '2'
+version: '3.4'
 services:
   prometheus:
     image: prom/prometheus:{{ prometheus_version }}
@@ -11,5 +11,14 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention=1d'
+    networks:
+      {{ prometheus_networks | to_nice_yaml(indent=2) | indent(6,False) }}
+
 volumes:
   prometheus_data:
+
+networks:
+{% for net in prometheus_networks %}
+  {{ net }}:
+    name: {{ net }}
+{% endfor %}

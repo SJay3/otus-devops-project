@@ -11,6 +11,11 @@
   no_log: true
 
 - name: Run gitlab
-  docker_compose:
-    project_src: /tmp/gitlab
+  # docker_compose:
+  #   project_src: /tmp/gitlab
+  #   state: present
+  docker_stack:
+    name: gitlab
     state: present
+    compose:
+      - /tmp/gitlab/docker-compose.yml

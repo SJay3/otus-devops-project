@@ -42,7 +42,7 @@
         update_cache: no
         state: present
 
-    # - name: Install python libraries for use docker with Ansible
-    #   pip:
-    #     name: docker
-    #     state: present
+    - name: Install python libraries for use docker with Ansible
+      pip:
+        name: jsondiff
+        state: present

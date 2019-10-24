@@ -12,6 +12,7 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
+- [Ansible] Create swarm cluster. Need to use docker-compose files > 3 version and deploy it with docker_stack.
 - Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
 - Add Gitlab to monitoring

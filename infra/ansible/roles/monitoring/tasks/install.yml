@@ -10,6 +10,8 @@
     dest: /tmp/monitoring/docker-compose.yml
 
 - name: Run monitoring tools
-  docker_compose:
-    project_src: /tmp/monitoring
+  docker_stack:
+    name: monitoring
     state: present
+    compose:
+      - /tmp/monitoring/docker-compose.yml
