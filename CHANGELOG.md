@@ -24,6 +24,7 @@
 
 ## [Unreleased]
 ### Added
+- [Ansible] Role: monitoring. Deploy prometheus
 - [Ansible] Create swarm cluster. Need to use docker-compose files > 3 version and deploy it with docker_stack.
 - [Terraform] Add GCP firewall rules for prometheus
 - [Terraform] Add GCP firewall rules for grafana

@@ -8,10 +8,7 @@ prometheus_scrape_configs:
           - 'localhost:9090'
 prometheus_networks:
   - prometheus
-  - gitlab
 
 monitoring_networks:
   - prometheus:
       external: false
-  - gitlab:
-      external: true
