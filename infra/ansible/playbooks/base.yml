@@ -44,5 +44,9 @@
 
     - name: Install python libraries for use docker with Ansible
       pip:
-        name: jsondiff
+        name: "{{ packages }}"
         state: present
+      vars:
+        packages:
+          - jsondiff
+          - docker

@@ -1,0 +1,8 @@
+---
+# create swarm cluster
+- name: Create swarm cluster
+  hosts: infra
+  tasks:
+    - name: Initialized swarm
+      docker_swarm:
+        state: present
