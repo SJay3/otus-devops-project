@@ -9,3 +9,9 @@ prometheus_scrape_configs:
 prometheus_networks:
   - prometheus
   - gitlab
+
+monitoring_networks:
+  - prometheus:
+      external: false
+  - gitlab:
+      external: true

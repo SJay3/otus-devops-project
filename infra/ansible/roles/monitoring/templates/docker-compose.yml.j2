@@ -1,7 +1,11 @@
-version: '3.4'
+#jinja2: lstrip_blocks: "True"
+version: '3.7'
 services:
   prometheus:
     image: prom/prometheus:{{ prometheus_version }}
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     ports:
       - '9090:9090'
     volumes:
@@ -18,7 +22,10 @@ volumes:
   prometheus_data:
 
 networks:
-{% for net in prometheus_networks %}
-  {{ net }}:
-    name: {{ net }}
+{% for net in monitoring_networks %}
+  {% for key, value in net.items() %}
+  {{ key }}:
+    name: {{ key }}
+    {{ value | to_nice_yaml(indent=2) | indent(6, False) }}
+  {% endfor %}
 {% endfor %}

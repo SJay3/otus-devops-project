@@ -12,7 +12,6 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- [Ansible] Create swarm cluster. Need to use docker-compose files > 3 version and deploy it with docker_stack.
 - Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
 - Add Gitlab to monitoring
@@ -25,8 +24,12 @@
 
 ## [Unreleased]
 ### Added
+- [Ansible] Create swarm cluster. Need to use docker-compose files > 3 version and deploy it with docker_stack.
 - [Terraform] Add GCP firewall rules for prometheus
 - [Terraform] Add GCP firewall rules for grafana
+
+### Changed
+- [Ansible] Deploy gitlab using docker stack deploy with compose file
 
 ## [0.1.5] 2019-10-21
 ### Removed
