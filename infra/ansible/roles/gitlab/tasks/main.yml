@@ -4,6 +4,12 @@
     path: /tmp/gitlab
     state: directory
 
+- name: Create gitlab config dir
+  become: yes
+  file:
+    path: /srv/gitlab/config
+    state: directory
+
 - name: Render compose file
   template:
     src: docker-compose.yml.j2
@@ -11,6 +17,11 @@
   no_log: true
 
 - name: Run gitlab
-  docker_compose:
-    project_src: /tmp/gitlab
+  # docker_compose:
+  #   project_src: /tmp/gitlab
+  #   state: present
+  docker_stack:
+    name: gitlab
     state: present
+    compose:
+      - /tmp/gitlab/docker-compose.yml

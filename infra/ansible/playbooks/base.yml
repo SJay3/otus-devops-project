@@ -1,7 +1,7 @@
 ---
 # install base software to VM, like python
 - name: Check and Install python
-  hosts: all
+  hosts: infra
   become: true
   gather_facts: False
 
@@ -42,7 +42,11 @@
         update_cache: no
         state: present
 
-    # - name: Install python libraries for use docker with Ansible
-    #   pip:
-    #     name: docker
-    #     state: present
+    - name: Install python libraries for use docker with Ansible
+      pip:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - jsondiff
+          - docker

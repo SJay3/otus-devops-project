@@ -1,0 +1,8 @@
+---
+# configure from terraform
+
+- import_playbook: wait.yml
+# install base dependencies
+- import_playbook: base.yml
+# create swarm cluster
+- import_playbook: docker-swarm.yml

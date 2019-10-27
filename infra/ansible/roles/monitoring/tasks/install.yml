@@ -1,0 +1,21 @@
+---
+- name: Create monitoring tmp directory
+  file:
+    path: /tmp/monitoring
+    state: directory
+
+- name: Render compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: /tmp/monitoring/docker-compose.yml
+
+- name: show templating results
+  debug:
+    msg: "{{ lookup('template', 'docker-compose.yml.j2') }}"
+
+- name: Run monitoring tools
+  docker_stack:
+    name: monitoring
+    state: present
+    compose:
+      - /tmp/monitoring/docker-compose.yml
