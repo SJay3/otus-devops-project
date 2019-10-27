@@ -8,3 +8,4 @@
   template:
     src: prometheus.yml.j2
     dest: /etc/prometheus/prometheus.yml
+  notify: reload prometheus

@@ -22,8 +22,21 @@ prometheus_scrape_configs:
     static_configs:
       - targets:
           - "{{ stage_address }}:8001"
+        labels:
+          env: 'stage'
+      - targets:
+          - "{{ prod_address }}:8001"
+        labels:
+          env: 'prod'
+
 
   - job_name: 'crawler-ui'
     static_configs:
       - targets:
           - "{{ stage_address }}:8000"
+        labels:
+          env: 'stage'
+      - targets:
+          - "{{ prod_address }}:8000"
+        labels:
+          env: 'prod'

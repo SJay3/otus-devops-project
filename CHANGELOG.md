@@ -28,6 +28,7 @@
 
 ### Added
 - [Terraform] Add crawler engine metrics port to vars. Create firewall rules
+- [Ansible] Add handler for prometheus
 
 ## [0.1.6] 2019-10-27
 ### Added
