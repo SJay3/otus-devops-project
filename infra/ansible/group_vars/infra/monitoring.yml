@@ -1,5 +1,6 @@
 ---
 # Monitoring vars
+grafana_image: "{{ docker_registry }}/grafana:crawler"
 # Networks defined global in compose file.
 # For networks that created in other compose use "external: true"
 monitoring_networks:

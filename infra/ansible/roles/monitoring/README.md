@@ -9,12 +9,49 @@ Installation components:
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- docker swarm
+- jsondiff
+- python docker SDK
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Global veriables
+
+```yaml
+prometheus_image: prometheus docker image
+grafana_image: grafana docker image
+prometheus_scrape_interval: scrape interval in prom config
+```
+
+Add jobs in` prometheus_scrape_configs` variable the same as in prometheus scrape config
+
+```yaml
+prometheus_scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets:
+          - 'localhost:9090'
+```
+
+Attach networks to prometheus and grafana in docker-compose file
+
+```yaml
+prometheus_networks:
+  - prometheus
+
+grafana_networks:
+  - prometheus
+```
+
+Global defining networks in compose file. Networks definde in other compose-files must be defined here with `external: true`
+
+```yaml
+monitoring_networks:
+  - prometheus:
+      external: false
+
+```
 
 Dependencies
 ------------
@@ -28,7 +65,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: monitoring
 
 License
 -------

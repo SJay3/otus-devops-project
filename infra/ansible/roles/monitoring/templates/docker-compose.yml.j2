@@ -2,7 +2,7 @@
 version: '3.7'
 services:
   prometheus:
-    image: prom/prometheus:{{ prometheus_version }}
+    image: {{ prometheus_image }}
     deploy:
       placement:
         constraints: [node.role == manager]
@@ -20,7 +20,7 @@ services:
       {{ prometheus_networks | to_nice_yaml(indent=2) | indent(6,False) }}
   
   grafana:
-    image: ${USERNAME}/grafana
+    image: ${USERNAME}/grafana:{{ grafana_version }}
     volumes:
       - grafana_data:/var/lib/grafana
     environment:

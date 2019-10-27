@@ -24,4 +24,3 @@ gitlab_runner_runners:
       - "/cache"
     docker_privileged: true
     wait_for_services_timeout: '50'
-
