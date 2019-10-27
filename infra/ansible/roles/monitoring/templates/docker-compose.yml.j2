@@ -18,9 +18,24 @@ services:
       - '--web.enable-lifecycle'
     networks:
       {{ prometheus_networks | to_nice_yaml(indent=2) | indent(6,False) }}
+  
+  grafana:
+    image: ${USERNAME}/grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=secret
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    networks:
+      {{ grafana_networks | to_nice_yaml(indent=2) | indent(6,False) }}
 
 volumes:
   prometheus_data:
+  grafana_data:
 
 networks:
 {% for net in monitoring_networks %}

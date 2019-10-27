@@ -9,6 +9,9 @@ prometheus_scrape_configs:
 prometheus_networks:
   - prometheus
 
+grafana_networks:
+  - prometheus
+
 monitoring_networks:
   - prometheus:
       external: false
