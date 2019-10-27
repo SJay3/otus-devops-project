@@ -1,5 +1,7 @@
 ---
 env: infra
+stage_address: 35.198.172.216
+prod_address: localhost
 
 # gitlab vars
 gitlab_external_ip: "{{ inventory_hostname }}"
@@ -22,15 +24,3 @@ gitlab_runner_runners:
       - "/cache"
     docker_privileged: true
     wait_for_services_timeout: '50'
-
-# Monitoring vars
-# Networks defined global in compose file. For networks that created in other compose use "external: true"
-monitoring_networks:
-  - prometheus:
-      external: false
-  - gitlab:
-      external: true
-# networks used by prometheus container
-prometheus_networks:
-  - prometheus
-  - gitlab

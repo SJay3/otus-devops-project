@@ -1,0 +1,29 @@
+---
+# Monitoring vars
+# Networks defined global in compose file.
+# For networks that created in other compose use "external: true"
+monitoring_networks:
+  - prometheus:
+      external: false
+  - gitlab:
+      external: true
+# networks used by prometheus container
+prometheus_networks:
+  - prometheus
+  - gitlab
+
+prometheus_scrape_config:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets:
+          - 'localhost:9090'
+  - job_name: 'crawler-engine'
+    metrics_path: /
+    static_configs:
+      - targets:
+          - "{{ stage_address }}:8000"
+
+  - job_name: 'crawler-ui'
+    static_configs:
+      - targets:
+          - "{{ stage_address }}:8000"

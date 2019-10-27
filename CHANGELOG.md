@@ -19,18 +19,24 @@
 - Add supported version of software in Readme
 - Add description how gitlab working with crawler in readme
 - [Ansible] Configure runner in infra for concurrent jobs
-- [Ansible] Add waiting until ssh is reacheble in ansible-playbook base.yml
 - [Docker] Create Docker image with docker-compose.
+- [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+
+## [0.1.6] 2019-10-27
 ### Added
 - [Ansible] Role: monitoring. Deploy prometheus
 - [Ansible] Create swarm cluster. Need to use docker-compose files > 3 version and deploy it with docker_stack.
 - [Terraform] Add GCP firewall rules for prometheus
 - [Terraform] Add GCP firewall rules for grafana
+- [Ansible] Add waiting until ssh is reacheble in ansible. Playbook `wait.yml`.
 
 ### Changed
 - [Ansible] Deploy gitlab using docker stack deploy with compose file
+
+### Fixed
+- [Packer] Fix docker-compose installation. Use pip instead of apt
 
 ## [0.1.5] 2019-10-21
 ### Removed

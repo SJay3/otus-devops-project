@@ -1,7 +1,7 @@
 ---
 # install base software to VM, like python
 - name: Check and Install python
-  hosts: all
+  hosts: infra
   become: true
   gather_facts: False
 

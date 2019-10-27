@@ -145,3 +145,19 @@ git push gitlab master
 ```
 
 12. Наслаждаемся пайплайном в гитлабе. Деплой на stage и prod производится вручную. На stage можно деплоится только с ветки dev и master, на prod только теги.
+
+13. Для работы мониторинга в файле ansible/group_vars/infra/vars.yml необходимо указать внешние ip адреса (или dns-имена) контуров stage и prod.
+
+```yaml
+stage_address: <ip-address or dns>
+prod_address: <ip-address or dns>
+```
+
+14. Запустить плейбук с мониторингом:
+
+```shell
+cd infra/ansible
+ansible-playbook --vault-password-file \
+	~/ansible_vault_devops_infra.key \
+	playbooks/monitoring.yml
+```
