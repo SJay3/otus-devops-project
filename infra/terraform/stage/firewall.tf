@@ -10,3 +10,16 @@ resource "google_compute_firewall" "crawler_http" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["docker-${var.environment}"]
 }
+
+resource "google_compute_firewall" "crawler_engine_metrics" {
+  name    = "allow-crawler-engine-${var.environment}-metrics"
+  network = "devops"
+
+  allow {
+    protocol = "tcp"
+    ports    = [var.crawler_engine_metrics_port]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["docker-${var.environment}"]
+}

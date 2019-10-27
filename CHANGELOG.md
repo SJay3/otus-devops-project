@@ -23,6 +23,11 @@
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+### Fixed
+- [Ansible] Fix monitoring group_vars
+
+### Added
+- [Terraform] Add crawler engine metrics port to vars. Create firewall rules
 
 ## [0.1.6] 2019-10-27
 ### Added
