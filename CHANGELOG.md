@@ -24,6 +24,7 @@
 
 ## [Unreleased]
 ### Fixed
+- [Ansible] Role: monitoring. Run handler only if docker stack not changed, but config is changed
 - [Ansible] Fix monitoring group_vars
 
 ### Added

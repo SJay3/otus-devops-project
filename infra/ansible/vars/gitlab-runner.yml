@@ -1,4 +1,4 @@
 ---
 # gitlab runner vars
-gitlab_runner_registration_token: 'Ur4NHhigKBg53PX_aFqq'
+gitlab_runner_registration_token: 'pkCy3oR_tvzhVX1wNHxn'
 gitlab_runner_coordinator_url: "http://{{ groups['infra'][0] }}/"
