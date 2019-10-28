@@ -11,6 +11,6 @@
   notify: reload prometheus
 
 - name: Copy alert rules
-  file:
+  copy:
     src: alerts.yml
     dest: /etc/prometheus/alerts.yml

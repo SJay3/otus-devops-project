@@ -12,8 +12,8 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- Create monitoring inrastracture (prometheus + grafana)
 - Add infra node to monitoring
+- Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
 - Add supported version of software in Readme
