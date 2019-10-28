@@ -14,10 +14,10 @@ all: grafana trickster
 
 # MONITORING
 grafana:
-	cd monitoring/grafana && docker build -t $(DOCKER_REGISTRY)/grafana:$(IMAGE_TAG)
+	cd monitoring/grafana && docker build -t $(DOCKER_REGISTRY)/grafana:$(IMAGE_TAG) .
 
 trickster:
-	cd monitoring/trickster && docker build -t $(DOCKER_REGISTRY)/trickster:$(IMAGE_TAG)
+	cd monitoring/trickster && docker build -t $(DOCKER_REGISTRY)/trickster:$(IMAGE_TAG) .
 
 push: grafana-push trickster-push
 
