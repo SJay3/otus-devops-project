@@ -10,13 +10,18 @@ else
   IMAGE_TAG = $(TAG)
 endif
 
-all: grafana
+all: grafana trickster
 
 # MONITORING
 grafana:
 	cd monitoring/grafana && docker build -t $(DOCKER_REGISTRY)/grafana:$(IMAGE_TAG)
 
-push: grafana-push
+trickster:
+	cd monitoring/trickster && docker build -t $(DOCKER_REGISTRY)/trickster:$(IMAGE_TAG)
+
+push: grafana-push trickster-push
 
 grafana-push:
 	docker push $(DOCKER_REGISTRY)/grafana:$(IMAGE_TAG)
+trickster-push:
+	docker push $(DOCKER_REGISTRY)/trickster:$(IMAGE_TAG)

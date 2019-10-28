@@ -18,9 +18,18 @@ services:
       - '--web.enable-lifecycle'
     networks:
       {{ prometheus_networks | to_nice_yaml(indent=2) | indent(6,False) }}
-  
+
+  trickster:
+    image: {{ trickster_image }}
+    ports:
+      - 9089:9089
+    depends_on:
+      - prometheus
+    networks:
+      {{ trickster_networks | to_nice_yaml(indent=2) | indent(6,False) }}
+
   grafana:
-    image: ${USERNAME}/grafana:{{ grafana_version }}
+    image: {{ grafana_image }}
     volumes:
       - grafana_data:/var/lib/grafana
     environment:

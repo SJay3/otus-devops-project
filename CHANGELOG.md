@@ -29,6 +29,9 @@
 ### Added
 - [Terraform] Add crawler engine metrics port to vars. Create firewall rules
 - [Ansible] Add handler for prometheus
+- [Docker] Add trickster image
+- [Docker] Add grafana image
+- [Ansible] Add grafana and trickster to monitoring role
 
 ## [0.1.6] 2019-10-27
 ### Added
