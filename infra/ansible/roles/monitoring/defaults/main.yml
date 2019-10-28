@@ -2,6 +2,7 @@
 prometheus_image: prom/prometheus:v2.13.1
 grafana_image: grafana/grafana:5.0.0
 trickster_image: tricksterio/trickster
+alertmanager_image: prom/alertmanager:v0.14.0
 prometheus_scrape_interval: '5s'
 prometheus_scrape_configs:
   - job_name: 'prometheus'
@@ -15,6 +16,9 @@ trickster_networks:
   - prometheus
 
 grafana_networks:
+  - prometheus
+
+alertmanager_networks:
   - prometheus
 
 monitoring_networks:

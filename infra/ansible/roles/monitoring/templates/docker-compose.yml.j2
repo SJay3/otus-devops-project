@@ -42,6 +42,15 @@ services:
     networks:
       {{ grafana_networks | to_nice_yaml(indent=2) | indent(6,False) }}
 
+  alertmanager:
+    image: {{ alertmanager_image }}
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+    ports:
+      - 9093:9093
+    networks:
+      {{ alertmanager_networks | to_nice_yaml(indent=2) | indent(6,False) }}
+
 volumes:
   prometheus_data:
   grafana_data:

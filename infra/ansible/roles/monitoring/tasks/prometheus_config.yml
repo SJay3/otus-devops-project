@@ -9,3 +9,8 @@
     src: prometheus.yml.j2
     dest: /etc/prometheus/prometheus.yml
   notify: reload prometheus
+
+- name: Copy alert rules
+  file:
+    src: alerts.yml
+    dest: /etc/prometheus/alerts.yml

@@ -33,6 +33,8 @@
 - [Docker] Add trickster image
 - [Docker] Add grafana image
 - [Ansible] Add grafana and trickster to monitoring role
+- [Ansible] Add alertmanager to monitoring role
+- [Docker] Add alertmanager image
 
 ## [0.1.6] 2019-10-27
 ### Added
