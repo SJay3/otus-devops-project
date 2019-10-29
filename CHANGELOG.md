@@ -12,6 +12,7 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
+- [Security] Hide grafana login and password in moonitoring role. Use encrypted password.
 - Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
