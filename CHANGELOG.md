@@ -23,6 +23,8 @@
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+
+### [0.1.7] 2019-10-29
 ### Fixed
 - [Ansible] Role: monitoring. Run handler only if docker stack not changed, but config is changed
 - [Ansible] Fix monitoring group_vars
@@ -35,6 +37,8 @@
 - [Ansible] Add grafana and trickster to monitoring role
 - [Ansible] Add alertmanager to monitoring role
 - [Docker] Add alertmanager image
+- [Terraform] Add firewall rule for metrics ports in stage and prod
+- [Ansible] Role: monitoring. Add node-exporter to compose file 
 
 ## [0.1.6] 2019-10-27
 ### Added
