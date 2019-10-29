@@ -12,7 +12,6 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- Add infra node to monitoring
 - Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
 - Create Grafana Dashboards
@@ -23,6 +22,8 @@
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+### Fixed
+- [Ansible] Role: monitoring. fix variables for node-exporter
 
 ### [0.1.7] 2019-10-29
 ### Fixed
