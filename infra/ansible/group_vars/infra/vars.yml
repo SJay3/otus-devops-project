@@ -1,7 +1,7 @@
 ---
 env: infra
 stage_address: 35.198.172.216
-prod_address: localhost
+prod_address: 35.228.168.68
 
 # gitlab vars
 gitlab_external_ip: "{{ inventory_hostname }}"

@@ -8,3 +8,9 @@
   template:
     src: prometheus.yml.j2
     dest: /etc/prometheus/prometheus.yml
+  notify: reload prometheus
+
+- name: Copy alert rules
+  copy:
+    src: alerts.yml
+    dest: /etc/prometheus/alerts.yml

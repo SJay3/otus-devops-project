@@ -1,5 +1,8 @@
 ---
 # Monitoring vars
+grafana_image: "{{ docker_registry }}/grafana:crawler"
+trickster_image: "{{ docker_registry }}/trickster:crawler"
+alertmanager_image: "{{ docker_registry }}/alertmanager:crawler"
 # Networks defined global in compose file.
 # For networks that created in other compose use "external: true"
 monitoring_networks:
@@ -12,7 +15,7 @@ prometheus_networks:
   - prometheus
   - gitlab
 
-prometheus_scrape_config:
+prometheus_scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets:
@@ -21,9 +24,34 @@ prometheus_scrape_config:
     metrics_path: /
     static_configs:
       - targets:
-          - "{{ stage_address }}:8000"
+          - "{{ stage_address }}:8001"
+        labels:
+          env: 'stage'
+      - targets:
+          - "{{ prod_address }}:8001"
+        labels:
+          env: 'prod'
+
 
   - job_name: 'crawler-ui'
     static_configs:
       - targets:
           - "{{ stage_address }}:8000"
+        labels:
+          env: 'stage'
+      - targets:
+          - "{{ prod_address }}:8000"
+        labels:
+          env: 'prod'
+
+  - job_name: 'node-exporters'
+    static_configs:
+      - targets:
+          - node-exporter:9100
+        labels: 'infra'
+      - targets:
+          - "{{ stage_address }}:9100"
+        labels: 'stage'
+      - targets:
+          - "{{ prod_address }}:9100"
+        labels: 'prod'

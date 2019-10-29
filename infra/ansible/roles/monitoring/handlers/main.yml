@@ -1,2 +1,6 @@
 ---
-# handlers file for monitoring
+- name: reload prometheus
+  uri:
+    url: "http://{{ inventory_hostname }}:9090/-/reload"
+    method: POST
+  when: stack is not changed

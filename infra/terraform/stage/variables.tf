@@ -76,6 +76,18 @@ variable "crawler_ui_web_port" {
   default     = 8000
 }
 
+variable "crawler_engine_metrics_port" {
+  type        = number
+  description = "Crawler engine port number with metrics to create firewall rules"
+  default     = 8001
+}
+
+variable "metrics_ports" {
+  type = list(number)
+  description = "List of port nubmers"
+  default = null
+}
+
 # Network vars
 variable "subnet_cidr_range" {
   type        = "string"
