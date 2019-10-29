@@ -82,6 +82,12 @@ variable "crawler_engine_metrics_port" {
   default     = 8001
 }
 
+variable "metrics_ports" {
+  type = list(number)
+  description = "List of port nubmers"
+  default = null
+}
+
 # Network vars
 variable "subnet_cidr_range" {
   type        = "string"

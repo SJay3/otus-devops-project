@@ -43,3 +43,15 @@ prometheus_scrape_configs:
           - "{{ prod_address }}:8000"
         labels:
           env: 'prod'
+
+  - job_name: 'node-exporters'
+    static_configs:
+      - targets:
+          - node-exporter:9100
+        labels: 'infra'
+      - targets:
+          - "{{ stage_address }}:9100"
+        labels: 'stage'
+      - targets:
+          - "{{ prod_address }}:9100"
+        labels: 'prod'

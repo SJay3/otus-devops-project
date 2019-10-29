@@ -1,5 +1,5 @@
 global:
-  slack_api_url: 'https://hooks.slack.com/services/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'
+  slack_api_url: 'https://hooks.slack.com/services/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'
   smtp_from: 'alert@example.com'
   smtp_smarthost: 'smtp.mailtrap.io:2525'
   smtp_auth_username: '7a74292904a936'

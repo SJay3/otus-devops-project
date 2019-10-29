@@ -23,3 +23,17 @@ resource "google_compute_firewall" "crawler_engine_metrics" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["docker-${var.environment}"]
 }
+
+resource "google_compute_firewall" "monitoring" {
+  count = var.metrics_ports != null ? 1 : 0
+  name = "allow-monitoring-${var.environment}-metrics"
+  network = "devops"
+
+  allow {
+    protocol = "tcp"
+    ports = var.metrics_ports
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["docker-${var.environment}"]
+}
