@@ -14,15 +14,17 @@
 ## [ToDo]
 - [Security] Hide grafana login and password in monitoring role. Use encrypted password.
 - [Security] Encrypt slack web hook token in alertmanager config
-- Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
 - Add supported version of software in Readme
 - Add description how gitlab working with crawler in readme
 - [Ansible] Configure runner in infra for concurrent jobs
-- [Docker] Create Docker image with docker-compose.
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+
+## [0.1.9] 2019-10-30
+### Added
+- [Docker] Create Docker image with docker-compose.
 
 ## [0.1.8] 2019-10-30
 ### Fixed
