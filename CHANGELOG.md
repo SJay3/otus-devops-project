@@ -12,7 +12,8 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- [Security] Hide grafana login and password in moonitoring role. Use encrypted password.
+- [Security] Hide grafana login and password in monitoring role. Use encrypted password.
+- [Security] Encrypt slack web hook token in alertmanager config
 - Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
 - Add supported version of software in Readme
@@ -24,10 +25,12 @@
 ## [Unreleased]
 ### Fixed
 - [Ansible] Role: monitoring. fix variables for node-exporter
+- [Grafana] Fix mongodb dashboard
 
 ### Added
 - [Docker] Add build mongo image to makefile
 - [Grafana] Create Grafana Dashboards
+- [Prometheus] Add mongodb-exporter job
 
 ### [0.1.7] 2019-10-29
 ### Fixed
