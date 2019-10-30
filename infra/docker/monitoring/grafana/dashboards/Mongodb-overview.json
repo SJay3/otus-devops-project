@@ -1,0 +1,5 @@
+{
+  "error": {
+    "message": "Datasource named Prometheus was not found"
+  }
+}

@@ -15,7 +15,6 @@
 - [Security] Hide grafana login and password in moonitoring role. Use encrypted password.
 - Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
-- Create Grafana Dashboards
 - Add supported version of software in Readme
 - Add description how gitlab working with crawler in readme
 - [Ansible] Configure runner in infra for concurrent jobs
@@ -28,6 +27,7 @@
 
 ### Added
 - [Docker] Add build mongo image to makefile
+- [Grafana] Create Grafana Dashboards
 
 ### [0.1.7] 2019-10-29
 ### Fixed
