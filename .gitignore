@@ -24,3 +24,5 @@ ubuntu-xenial-16.04-cloudimg-console.log
 # docker-compose
 *.env
 
+infra/docker/monitoring/mongodb-exporter/.*
+infra/docker/monitoring/mongodb-exporter/

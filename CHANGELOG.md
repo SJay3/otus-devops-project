@@ -26,6 +26,9 @@
 ### Fixed
 - [Ansible] Role: monitoring. fix variables for node-exporter
 
+### Added
+- [Docker] Add build mongo image to makefile
+
 ### [0.1.7] 2019-10-29
 ### Fixed
 - [Ansible] Role: monitoring. Run handler only if docker stack not changed, but config is changed
