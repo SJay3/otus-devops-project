@@ -29,10 +29,10 @@ alertmanager:
 
 mongodb-exporter:
 	cd monitoring && \
-	if [ -d moongodb-exporter ]; then \
+	if [ -d mongodb-exporter ]; then \
 		cd mongodb-exporter && git pull && git checkout $(MONGO_EXPORTER_VERSION); \
 	else git clone $(MONGO_EXPORTER_LINK) --branch $(MONGO_EXPORTER_VERSION) mongodb-exporter && \
-		cd mongodb-exporter; fi; && \
+		cd mongodb-exporter; fi; \
 	docker build -t $(DOCKER_REGISTRY)/mongodb-exporter:$(IMAGE_TAG) .
 
 
