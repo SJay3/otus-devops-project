@@ -23,6 +23,8 @@
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+
+## [0.1.8] 2019-10-30
 ### Fixed
 - [Ansible] Role: monitoring. fix variables for node-exporter
 - [Grafana] Fix mongodb dashboard
