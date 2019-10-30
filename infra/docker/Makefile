@@ -13,9 +13,15 @@ endif
 MONGO_EXPORTER_LINK = https://github.com/percona/mongodb_exporter.git
 MONGO_EXPORTER_VERSION = 0.10.0
 
-all: monitoring
+all: monitoring support
 .PHONY: all
-	
+
+# SUPPORT IMAGES
+support: docker-compose
+
+docker-compose:
+	cd support/docker-compose && docker build -t $(DOCKER_REGISTRY)/docker-compose:$(IMAGE_TAG) .
+
 # MONITORING
 monitoring: grafana trickster alertmanager mongodb-exporter
 grafana:
@@ -36,7 +42,7 @@ mongodb-exporter:
 	docker build -t $(DOCKER_REGISTRY)/mongodb-exporter:$(IMAGE_TAG) .
 
 
-push: monitoring-push
+push: monitoring-push support-push
 monitoring-push: grafana-push trickster-push alertmanager-push mongodb-exporter-push
 
 grafana-push:
@@ -47,3 +53,8 @@ alertmanager-push:
 	docker push $(DOCKER_REGISTRY)/alertmanager:$(IMAGE_TAG)
 mongodb-exporter-push:
 	docker push $(DOCKER_REGISTRY)/mongodb-exporter:$(IMAGE_TAG)
+
+support-push: docker-compose-push
+
+docker-compose-push:
+	docker push $(DOCKER_REGISTRY)/docker-compose:$(IMAGE_TAG)
