@@ -12,10 +12,10 @@
   - [Security] для обновлений безопасности.
 
 ## [ToDo]
-- Add infra node to monitoring
+- [Security] Hide grafana login and password in monitoring role. Use encrypted password.
+- [Security] Encrypt slack web hook token in alertmanager config
 - Add stage and prod nodes to monitoring
 - Add Gitlab to monitoring
-- Create Grafana Dashboards
 - Add supported version of software in Readme
 - Add description how gitlab working with crawler in readme
 - [Ansible] Configure runner in infra for concurrent jobs
@@ -23,6 +23,16 @@
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+
+## [0.1.8] 2019-10-30
+### Fixed
+- [Ansible] Role: monitoring. fix variables for node-exporter
+- [Grafana] Fix mongodb dashboard
+
+### Added
+- [Docker] Add build mongo image to makefile
+- [Grafana] Create Grafana Dashboards
+- [Prometheus] Add mongodb-exporter job
 
 ### [0.1.7] 2019-10-29
 ### Fixed

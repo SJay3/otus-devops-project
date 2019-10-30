@@ -48,10 +48,24 @@ prometheus_scrape_configs:
     static_configs:
       - targets:
           - node-exporter:9100
-        labels: 'infra'
+        labels:
+          env: 'infra'
       - targets:
           - "{{ stage_address }}:9100"
-        labels: 'stage'
+        labels:
+          env: 'stage'
       - targets:
           - "{{ prod_address }}:9100"
-        labels: 'prod'
+        labels:
+          env: 'prod'
+
+  - job_name: 'mongo'
+    static_configs:
+      - targets:
+          - "{{ stage_address }}:9216"
+        labels:
+          env: 'stage'
+      - targets:
+          - "{{ prod_address }}:9216"
+        labels:
+          env: 'prod'

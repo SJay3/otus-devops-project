@@ -52,7 +52,7 @@ services:
       {{ alertmanager_networks | to_nice_yaml(indent=2) | indent(6,False) }}
 
   node-exporter:
-    image: {{ node-exporter_image }}
+    image: {{ node_exporter_image }}
     user: root
     volumes:
       - /proc:/host/proc:ro
@@ -63,7 +63,7 @@ services:
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
     networks:
-      {{ node-exporter_networks | to_nice_yaml(indent=2) | indent(6,False) }}
+      {{ node_exporter_networks | to_nice_yaml(indent=2) | indent(6,False) }}
 
 volumes:
   prometheus_data:
