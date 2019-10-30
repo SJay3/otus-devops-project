@@ -21,6 +21,8 @@
 - [Terraform] Repace paths to start terraform from terraform folder
 
 ## [Unreleased]
+
+## [0.1.9] 2019-10-30
 ### Added
 - [Docker] Create Docker image with docker-compose.
 
