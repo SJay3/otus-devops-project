@@ -19,6 +19,7 @@
 - Add description how gitlab working with crawler in readme
 - [Ansible] Configure runner in infra for concurrent jobs
 - [Terraform] Repace paths to start terraform from terraform folder
+- Update readme
 
 ## [Unreleased]
 
